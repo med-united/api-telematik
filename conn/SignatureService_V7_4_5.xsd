@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ===================================================================== -->
-<!-- 	                    Copyright (C) 2021 gematik. Alle Rechte vorbehalten.                                 -->
+<!-- 	                    Copyright (C) 2024 gematik. Alle Rechte vorbehalten.                                 -->
 <!-- ===================================================================== -->
 <!-- Version History  
-            version: V7.5.5
+            version: V7.4.5
 			===========
-			*** C_10614: Minus-Zeichen escaped in Pattern Attribut Shorttext   
-            version: V7.5.4
-			===========
-			*** C_10555: GetSignatureMode reduziert auf einen Aufrufkontext
-			*** C_10614: Fix Pattern Attribut Shorttext   
-            version: V7.5.3
-			===========
-			*** Element SessionInfo in GetSignatureModeResponse
-            version: V7.5.2
+            *** C_11516: Semantische Änderungen:
+                            Einzubettende OCSP-Antworten jetzt nach der Erstellung der Signaturen einholen und einbetten
+            version: V7.4.4
 			===========
 			*** C_10282: Defaultwert für Parameter "Crypt" aus XML-Schema entfernen
-			version: V7.5.1
-			===========
-			*** C_10147: Härtung Attribut Shorttext   
-			version: V7.5.0
-			===========
-			*** C_6997: Komfortsignatur   
 			version: V7.4.3
 			===========
 			*** C_6683: ECC-Migration   
@@ -45,10 +33,10 @@
 			===========
 			*** ServicePolicy durch GenerateUnderSignature ersetzt
 	 End of Version History-->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:vr="urn:oasis:names:tc:dss-x:1.0:profiles:verificationreport:schema#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:dss="urn:oasis:names:tc:dss:1.0:core:schema" xmlns:SIG="http://ws.gematik.de/conn/SignatureService/v7.5" xmlns:CONN="http://ws.gematik.de/conn/ConnectorCommon/v5.0" xmlns:CCTX="http://ws.gematik.de/conn/ConnectorContext/v2.0" xmlns:sp="urn:oasis:names:tc:dss-x:1.0:profiles:SignaturePolicy:schema#" xmlns:CERTCMN="http://ws.gematik.de/conn/CertificateServiceCommon/v2.0" xmlns:GERROR="http://ws.gematik.de/tel/error/v2.0" targetNamespace="http://ws.gematik.de/conn/SignatureService/v7.5" elementFormDefault="qualified" attributeFormDefault="unqualified" version="7.5.5">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:vr="urn:oasis:names:tc:dss-x:1.0:profiles:verificationreport:schema#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:dss="urn:oasis:names:tc:dss:1.0:core:schema" xmlns:SIG="http://ws.gematik.de/conn/SignatureService/v7.4" xmlns:CONN="http://ws.gematik.de/conn/ConnectorCommon/v5.0" xmlns:CCTX="http://ws.gematik.de/conn/ConnectorContext/v2.0" xmlns:sp="urn:oasis:names:tc:dss-x:1.0:profiles:SignaturePolicy:schema#" xmlns:CERTCMN="http://ws.gematik.de/conn/CertificateServiceCommon/v2.0" xmlns:GERROR="http://ws.gematik.de/tel/error/v2.0" targetNamespace="http://ws.gematik.de/conn/SignatureService/v7.4" elementFormDefault="qualified" attributeFormDefault="unqualified" version="7.4.5">
     <annotation>
         <documentation xml:lang="de">
-			Copyright (c) 2021, gematik GmbH. Alle Rechte vorbehalten. 
+			Copyright (c) 2024, gematik GmbH. Alle Rechte vorbehalten. 
 			Beschreibung: Schema für den Signaturdienst des Konnektors
 		</documentation>
     </annotation>
@@ -78,7 +66,7 @@
                 <element ref="SIG:JobNumber" minOccurs="0">
                     <annotation>
                         <documentation>
-    						Am Konnektor verpflichtend, am Signaturproxy optional
+							Am Konnektor verpflichtend, am Signaturproxy optional
 						</documentation>
                     </annotation>
                 </element>
@@ -251,7 +239,7 @@
                 <enumeration value="NONE">
                     <annotation>
                         <documentation>
-                            Keine Anzeige im Trusted Viewer
+							Keine Anzeige im Trusted Viewer
 						</documentation>
                     </annotation>
                 </enumeration>
@@ -351,8 +339,7 @@
     <element name="ShortText">
         <simpleType>
             <restriction base="string">
-                <maxLength value="30"/>
-                <pattern value="[a-zA-Z 0-9_.\-äöüÄÖÜß]*"/>
+                <maxLength value="1000"/>
             </restriction>
         </simpleType>
     </element>
@@ -394,81 +381,4 @@
         </complexType>
     </element>
     <element name="ReferenceToSignerCertificate" type="boolean"/>
-    <element name="ActivateComfortSignature">
-        <complexType>
-            <sequence>
-                <element ref="CONN:CardHandle"/>
-                <element ref="CCTX:Context"/>
-            </sequence>
-        </complexType>
-    </element>
-    <element name="ActivateComfortSignatureResponse">
-        <complexType>
-            <sequence>
-                <element ref="CONN:Status"/>
-                <element ref="SIG:SignatureMode"/>
-            </sequence>
-        </complexType>
-    </element>
-    <element name="DeactivateComfortSignature">
-        <complexType>
-            <sequence>
-                <element ref="CONN:CardHandle" maxOccurs="unbounded"/>
-            </sequence>
-        </complexType>
-    </element>
-    <element name="DeactivateComfortSignatureResponse">
-        <complexType>
-            <sequence>
-                <element ref="CONN:Status"/>
-            </sequence>
-        </complexType>
-    </element>
-    <element name="GetSignatureMode">
-        <complexType>
-            <sequence>
-                <element ref="CONN:CardHandle"/>
-                <element ref="CCTX:Context"/>
-            </sequence>
-        </complexType>
-    </element>
-    <element name="GetSignatureModeResponse">
-        <complexType>
-            <sequence>
-                <element ref="CONN:Status"/>
-                <element name="ComfortSignatureStatus" type="SIG:ComfortSignatureStatusEnum"/>
-                <element name="ComfortSignatureMax" type="SIG:CountType"/>
-                <element name="ComfortSignatureTimer" type="duration"/>
-                <element ref="SIG:SessionInfo" minOccurs="0"/>
-            </sequence>
-        </complexType>
-    </element>
-    <element name="SessionInfo">
-        <complexType>
-            <sequence>
-                <element ref="SIG:SignatureMode"/>
-                <element name="CountRemaining" type="SIG:CountType"/>
-                <element name="TimeRemaining" type="duration"/>
-            </sequence>
-        </complexType>
-    </element>
-    <element name="SignatureMode" type="SIG:SignatureModeEnum"/>
-    <simpleType name="SignatureModeEnum">
-        <restriction base="string">
-            <enumeration value="PIN"/>
-            <enumeration value="COMFORT"/>
-        </restriction>
-    </simpleType>
-    <simpleType name="CountType">
-        <restriction base="integer">
-            <minInclusive value="0"/>
-            <maxInclusive value="250"/>
-        </restriction>
-    </simpleType>
-    <simpleType name="ComfortSignatureStatusEnum">
-        <restriction base="string">
-            <enumeration value="ENABLED"/>
-            <enumeration value="DISABLED"/>
-        </restriction>
-    </simpleType>
 </schema>

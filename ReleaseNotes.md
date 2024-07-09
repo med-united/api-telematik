@@ -2,8 +2,16 @@
  
 # Release Notes api-telematik
 
-## Release 5.0.8
+## Release 6.0.0
+- Extension of operating data in CertificateDataType with Cryptography
+- Clarification of connector status information format (similar to GetResourceInformation)
+- Removal of Elements "TlsCertSource" and "TlsKeyCrypt" in order to avoid adaptations of OperatingData_vpnzugd_hardened.xsd
+- Support of PoPP-26 Feature by adding operations SecureSendAPDU, StartCardSession and StopCardSession in CardService
+- Comfort Signature: Integrate error handling of error 4018 inside the operation ActivateComfortSignature
+- eIDAS compliant semantic changes in SignatureService 7.4
+- Removal of older 7.4 and 7.5 versions of SignatureService
 
+## Release 5.0.8
 - C_11600: Extend OperatingData with used TLS-Certificate Source and Algorithm at the Client System Interface
 
 ## Release Consumer 1.0.0-1

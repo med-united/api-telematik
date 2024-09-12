@@ -44,7 +44,7 @@
                         <include>CertificateService_v6_0_1.wsdl</include>
                         <include>EventService.wsdl</include>
                         <include>CardService.wsdl</include>
-                        <include>AuthSignatureService_v7_4_3.wsdl</include>
+                        <include>AuthSignatureService_v7_4_1.wsdl</include>
                         <include>SignatureService.wsdl</include>
                         <include>SignatureService_V7_4_3.wsdl</include>
                         <include>SignatureService_V7_5_7.wsdl</include>

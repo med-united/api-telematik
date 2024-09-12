@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>de.servicehealth.epa4all</groupId>
@@ -35,25 +35,21 @@
                         </goals>
                     </execution>
                 </executions>
-		<configuration>
-		    <fork>once</fork>
+                <configuration>
+                    <fork>once</fork>
                     <sourceRoot>${project.basedir}/target/generated-sources</sourceRoot>
-                    <wsdlOptions>
-                        <wsdlOption>
-                            <wsdl>conn/vsds/VSDService.wsdl</wsdl>
-                            <wsdl>conn/CertificateService_v6_0_1.wsdl</wsdl>
-                            <wsdl>conn/EventService.wsdl</wsdl>
-                            <wsdl>conn/CardService.wsdl</wsdl>
-                            <wsdl>conn/AuthSignatureService_v7_4_3.wsdl</wsdl>
-                            <wsdl>conn/SignatureService.wsdl</wsdl>
-                            <wsdl>conn/SignatureService_V7_4_3.wsdl</wsdl>
-			    <wsdl>conn/SignatureService_V7_5_7.wsdl</wsdl>
-			    <extraargs>
-				    <extraarg>-verbose</extraarg>
-			    </extraargs>
-		       </wsdlOption>
-        	    </wsdlOptions>
-	            <additionalJvmArgs>-Djavax.xml.accessExternalDTD=all</additionalJvmArgs>
+                    <wsdlRoot>${basedir}/conn</wsdlRoot>
+                    <includes>
+                        <include>vsds/VSDService.wsdl</include>
+                        <include>CertificateService_v6_0_1.wsdl</include>
+                        <include>EventService.wsdl</include>
+                        <include>CardService.wsdl</include>
+                        <include>AuthSignatureService_v7_4_3.wsdl</include>
+                        <include>SignatureService.wsdl</include>
+                        <include>SignatureService_V7_4_3.wsdl</include>
+                        <include>SignatureService_V7_5_7.wsdl</include>
+                    </includes>
+                    <additionalJvmArgs>-Djavax.xml.accessExternalDTD=all</additionalJvmArgs>
                 </configuration>
             </plugin>
         </plugins>

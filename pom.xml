@@ -57,9 +57,10 @@
                         <include>EventService.wsdl</include>
                         <include>CardService.wsdl</include>
                         <include>AuthSignatureService_v7_4_1.wsdl</include>
-                        <include>SignatureService.wsdl</include>
+                        <!-- <include>SignatureService.wsdl</include> -->
+                        <!-- https://incentergy.atlassian.net/browse/EPA-353 -->
                         <include>SignatureService_V7_4_3.wsdl</include>
-                        <include>SignatureService_V7_5_7.wsdl</include>
+                        <!-- <include>SignatureService_V7_5_7.wsdl</include> -->
                     </includes>
                     <additionalJvmArgs>-Djavax.xml.accessExternalDTD=all</additionalJvmArgs>
                 </configuration>

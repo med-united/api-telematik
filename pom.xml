@@ -9,6 +9,8 @@
 
     <properties>
         <java.version>21</java.version>
+
+        <api.telematik.wsdl.location>${basedir}/soap-sources</api.telematik.wsdl.location>
     </properties>
 
     <dependencies>
@@ -50,18 +52,32 @@
                 <configuration>
                     <fork>once</fork>
                     <sourceRoot>${project.basedir}/target/generated-sources</sourceRoot>
-                    <wsdlRoot>${basedir}/conn</wsdlRoot>
-                    <includes>
-                        <include>vsds/VSDService.wsdl</include>
-                        <include>CertificateService_v6_0_1.wsdl</include>
-                        <include>EventService.wsdl</include>
-                        <include>CardService.wsdl</include>
-                        <include>AuthSignatureService_v7_4_1.wsdl</include>
-                        <!-- <include>SignatureService.wsdl</include> -->
-                        <!-- https://incentergy.atlassian.net/browse/EPA-353 -->
-                        <include>SignatureService_V7_4_3.wsdl</include>
-                        <!-- <include>SignatureService_V7_5_7.wsdl</include> -->
-                    </includes>
+                    <wsdlOptions>
+                        <wsdlOption>
+                            <wsdl>${basedir}/conn/CertificateService_v6_0_1.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/CertificateService_v6_0_1.wsdl</wsdlLocation>
+                        </wsdlOption>
+                        <wsdlOption>
+                            <wsdl>${basedir}/conn/EventService.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/EventService.wsdl</wsdlLocation>
+                        </wsdlOption>
+                        <wsdlOption>
+                            <wsdl>${basedir}/conn/CardService.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/CardService.wsdl</wsdlLocation>
+                        </wsdlOption>
+                        <wsdlOption>
+                            <wsdl>${basedir}/conn/AuthSignatureService_v7_4_1.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/AuthSignatureService_v7_4_1.wsdl</wsdlLocation>
+                        </wsdlOption>
+                        <wsdlOption>
+                            <wsdl>${basedir}/conn/SignatureService_V7_4_3.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/SignatureService_V7_4_3.wsdl</wsdlLocation>
+                        </wsdlOption>
+                        <wsdlOption>
+                            <wsdl>${basedir}/conn/vsds/VSDService.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/vsds/VSDService.wsdl</wsdlLocation>
+                        </wsdlOption>
+                    </wsdlOptions>
                     <additionalJvmArgs>-Djavax.xml.accessExternalDTD=all</additionalJvmArgs>
                 </configuration>
             </plugin>

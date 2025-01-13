@@ -81,6 +81,84 @@
                     <additionalJvmArgs>-Djavax.xml.accessExternalDTD=all</additionalJvmArgs>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-custom-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>cm</directory>
+                                    <targetPath>cm</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>conn</directory>
+                                    <targetPath>conn</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>consumer</directory>
+                                    <targetPath>consumer</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>ext</directory>
+                                    <targetPath>ext</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>fa</directory>
+                                    <targetPath>fa</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>fd</directory>
+                                    <targetPath>fd</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>images</directory>
+                                    <targetPath>images</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>ksr</directory>
+                                    <targetPath>ksr</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>stoerungsampel</directory>
+                                    <targetPath>stoerungsampel</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>tel</directory>
+                                    <targetPath>tel</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>vpnzugd</directory>
+                                    <targetPath>vpnzugd</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>vzd</directory>
+                                    <targetPath>vzd</targetPath>
+                                </resource>
+                            </resources>
+                            <!-- Specify where to copy the files -->
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

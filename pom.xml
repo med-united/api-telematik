@@ -66,6 +66,10 @@
                             <wsdlLocation>classpath:conn/CardService.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
+                            <wsdl>${basedir}/conn/CardTerminalService.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/CardTerminalService.wsdl</wsdlLocation>
+                        </wsdlOption>
+                        <wsdlOption>
                             <wsdl>${basedir}/conn/AuthSignatureService_v7_4_1.wsdl</wsdl>
                             <wsdlLocation>classpath:conn/AuthSignatureService_v7_4_1.wsdl</wsdlLocation>
                         </wsdlOption>

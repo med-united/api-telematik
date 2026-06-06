@@ -110,20 +110,16 @@
                             <wsdlLocation>classpath:conn/SignatureService_V7_4_3.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
-                            <wsdl>${basedir}/conn/vsds/VSDService.wsdl</wsdl>
-                            <wsdlLocation>classpath:conn/vsds/VSDService.wsdl</wsdlLocation>
-                        </wsdlOption>
-                        <wsdlOption>
                             <wsdl>${basedir}/consumer/CertificateService.wsdl</wsdl>
                             <wsdlLocation>classpath:consumer/CertificateService.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
                             <wsdl>${basedir}/consumer/SignatureService.wsdl</wsdl>
-                            <wsdlLocation>classpath:conn/SignatureService.wsdl</wsdlLocation>
+                            <wsdlLocation>classpath:consumer/SignatureService.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
-                            <wsdl>${basedir}/conn/EncryptionService.wsdl</wsdl>
-                            <wsdlLocation>classpath:conn/EncryptionService.wsdl</wsdlLocation>
+                            <wsdl>${basedir}/consumer/EncryptionService.wsdl</wsdl>
+                            <wsdlLocation>classpath:consumer/EncryptionService.wsdl</wsdlLocation>
                         </wsdlOption>
 		    </wsdlOptions>
                     <additionalJvmArgs>-Djavax.xml.accessExternalDTD=all</additionalJvmArgs>

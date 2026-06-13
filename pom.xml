@@ -106,8 +106,8 @@
                             <wsdlLocation>classpath:conn/AuthSignatureService_v7_4_1.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
-                            <wsdl>${basedir}/conn/SignatureService_V7_4_3.wsdl</wsdl>
-                            <wsdlLocation>classpath:conn/SignatureService_V7_4_3.wsdl</wsdlLocation>
+                            <wsdl>${basedir}/conn/SignatureService_V7_5_7.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/SignatureService_V7_5_7.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
                             <wsdl>${basedir}/consumer/CertificateService.wsdl</wsdl>

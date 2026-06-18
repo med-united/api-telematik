@@ -125,6 +125,18 @@
                             <wsdl>${basedir}/consumer/EncryptionService.wsdl</wsdl>
                             <wsdlLocation>classpath:consumer/EncryptionService.wsdl</wsdlLocation>
                         </wsdlOption>
+                        <wsdlOption>
+                            <wsdl>${basedir}/conn/EncryptionService.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/EncryptionService.wsdl</wsdlLocation>
+                            <!-- Pin the generated packages to ...v6 (CXF would otherwise derive
+                                 ...v6_1 from the v6.1 namespaces). -->
+                            <extraargs>
+                                <extraarg>-p</extraarg>
+                                <extraarg>http://ws.gematik.de/conn/EncryptionService/WSDL/v6.1=de.gematik.ws.conn.encryptionservice.wsdl.v6</extraarg>
+                                <extraarg>-p</extraarg>
+                                <extraarg>http://ws.gematik.de/conn/EncryptionService/v6.1=de.gematik.ws.conn.encryptionservice.v6</extraarg>
+                            </extraargs>
+                        </wsdlOption>
 		    </wsdlOptions>
                     <additionalJvmArgs>-Djavax.xml.accessExternalDTD=all</additionalJvmArgs>
                 </configuration>

@@ -94,6 +94,10 @@
                             <wsdlLocation>classpath:conn/EventService.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
+                            <wsdl>${basedir}/conn/EncryptionService.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/EncryptionService.wsdl</wsdlLocation>
+                        </wsdlOption>
+                         <wsdlOption>
                             <wsdl>${basedir}/conn/CardService.wsdl</wsdl>
                             <wsdlLocation>classpath:conn/CardService.wsdl</wsdlLocation>
                         </wsdlOption>

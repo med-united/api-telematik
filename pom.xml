@@ -114,6 +114,10 @@
                             <wsdlLocation>classpath:conn/SignatureService_V7_5_7.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
+                            <wsdl>${basedir}/conn/vsds/VSDService.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/vsds/VSDService.wsdl</wsdlLocation>
+                        </wsdlOption>
+                        <wsdlOption>
                             <wsdl>${basedir}/consumer/CertificateService.wsdl</wsdl>
                             <wsdlLocation>classpath:consumer/CertificateService.wsdl</wsdlLocation>
                         </wsdlOption>

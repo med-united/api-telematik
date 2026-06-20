@@ -108,6 +108,18 @@
                         <wsdlOption>
                             <wsdl>${basedir}/conn/AuthSignatureService_v7_4_1.wsdl</wsdl>
                             <wsdlLocation>classpath:conn/AuthSignatureService_v7_4_1.wsdl</wsdlLocation>
+                            <!-- AuthSignatureService imports the v7.4 SignatureService schema, which
+                                 reuses the element names (ExternalAuthenticate, OptionalInputs,
+                                 BinaryString, ...) of the v7.5 SignatureService below. CXF's default
+                                 namespace->package mapping collapses both into ...signatureservice.v7,
+                                 so the later v7.5 run overwrote the v7.4 package-info and the auth
+                                 stubs ended up bound to the v7.5 namespace (Unmarshalling Error:
+                                 expected v7.5, got v7.4). Pin the v7.4 namespace to its own package so
+                                 the two versions coexist. -->
+                            <extraargs>
+                                <extraarg>-p</extraarg>
+                                <extraarg>http://ws.gematik.de/conn/SignatureService/v7.4=de.gematik.ws.conn.signatureservice.v7_4</extraarg>
+                            </extraargs>
                         </wsdlOption>
                         <wsdlOption>
                             <wsdl>${basedir}/conn/SignatureService_V7_5_7.wsdl</wsdl>

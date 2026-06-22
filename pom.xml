@@ -98,8 +98,8 @@
                             <wsdlLocation>classpath:conn/EncryptionService.wsdl</wsdlLocation>
                         </wsdlOption>
                          <wsdlOption>
-                            <wsdl>${basedir}/conn/CardService.wsdl</wsdl>
-                            <wsdlLocation>classpath:conn/CardService.wsdl</wsdlLocation>
+                            <wsdl>${basedir}/conn/CardService_v8_2_1.wsdl</wsdl>
+                            <wsdlLocation>classpath:conn/CardService_v8_2_1.wsdl</wsdlLocation>
                         </wsdlOption>
                         <wsdlOption>
                             <wsdl>${basedir}/conn/CardTerminalService.wsdl</wsdl>

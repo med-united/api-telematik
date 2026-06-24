@@ -100,6 +100,18 @@
                          <wsdlOption>
                             <wsdl>${basedir}/conn/CardService_v8_2_1.wsdl</wsdl>
                             <wsdlLocation>classpath:conn/CardService_v8_2_1.wsdl</wsdlLocation>
+                            <!-- EventService and CardTerminalService import the CardService v8.1
+                                 schema, so its types (Cards, CardInfoType, VerifyPin, ...) are
+                                 generated into ...cardservice.v8 with a v8.1 package-info. CXF's
+                                 namespace->package mapping collapses v8.1 and v8.2 into that same
+                                 ...cardservice.v8 package, so the v8.2-only elements (StartCardSession,
+                                 SessionId, ...) inherited the v8.1 default namespace and were
+                                 marshalled in the wrong namespace (client could not read SessionId).
+                                 Pin the v8.2 namespace to its own package so the two versions coexist. -->
+                            <extraargs>
+                                <extraarg>-p</extraarg>
+                                <extraarg>http://ws.gematik.de/conn/CardService/v8.2=de.gematik.ws.conn.cardservice.v8_2</extraarg>
+                            </extraargs>
                         </wsdlOption>
                         <wsdlOption>
                             <wsdl>${basedir}/conn/CardTerminalService.wsdl</wsdl>
